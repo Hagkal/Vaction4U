@@ -1,9 +1,8 @@
-package sample;
+package Controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 
 public class Test {
     @FXML

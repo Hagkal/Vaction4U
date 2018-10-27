@@ -1,14 +1,12 @@
-package sample;
+package Controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
 
-public class Controller {
+public class MainViewController {
 
     @FXML
     public BorderPane lyt_mainPane;
