@@ -37,7 +37,7 @@
                         <Separator layoutX="10.0" layoutY="38.0" prefHeight="13.0" prefWidth="179.0" />
                         <TextField layoutX="10.0" layoutY="10.0" prefHeight="28.0" prefWidth="179.0" />
                         <Separator layoutX="10.0" layoutY="78.0" prefHeight="13.0" prefWidth="179.0" />
-                        <DatePicker />
+                        <DatePicker fx:id="date" />
                         <Separator layoutX="10.0" layoutY="119.0" prefHeight="13.0" prefWidth="179.0" />
                         <TextField layoutX="10.0" layoutY="91.0" prefHeight="28.0" prefWidth="179.0" />
                         <Separator layoutX="10.0" layoutY="157.0" prefHeight="13.0" prefWidth="179.0" />
@@ -73,7 +73,7 @@
                         <Pane prefHeight="62.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
                     </bottom>
                     <top>
-                        <Button mnemonicParsing="false" onMouseClicked="#testit" prefHeight="25.0" prefWidth="77.0" text="שלח טופס" BorderPane.alignment="CENTER" />
+                        <Button mnemonicParsing="false" onMouseClicked="#testit" prefHeight="25.0" prefWidth="77.0" text="שלח טופס" fx:id="btn_send" BorderPane.alignment="CENTER" />
                     </top>
                 </BorderPane>
             </bottom>
