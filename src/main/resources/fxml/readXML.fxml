@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="Controllers.ReadController"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <children>
+        <BorderPane prefHeight="400.0" prefWidth="600.0">
+            <top>
+                <Label alignment="TOP_RIGHT" contentDisplay="TOP" prefHeight="42.0" prefWidth="591.0" text="חיפוש משתמשים" textAlignment="RIGHT" BorderPane.alignment="CENTER">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+            </top>
+            <left>
+                <Pane prefHeight="200.0" prefWidth="20.0" BorderPane.alignment="CENTER" />
+            </left>
+            <center>
+                <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <TableView prefHeight="200.0" prefWidth="200.0">
+                            <columns>
+                                <TableColumn prefWidth="75.0" text="C1" />
+                                <TableColumn prefWidth="75.0" text="C2" />
+                            </columns>
+                        </TableView>
+                    </children></Pane>
+            </center>
+            <bottom>
+                <Pane prefHeight="50.0" prefWidth="50.0" BorderPane.alignment="CENTER" />
+            </bottom>
+            <right>
+                <VBox prefHeight="313.0" prefWidth="197.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="192.0" text="שם משתמש:  ">
+                            <font>
+                                <Font size="16.0" />
+                            </font></Label>
+                        <TextField prefHeight="25.0" prefWidth="137.0" />
+                        <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="60.0" text="חפש" />
+                    </children>
+                </VBox>
+            </right></BorderPane>
+    </children>
+</AnchorPane>
+
