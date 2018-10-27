@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="sample.Test"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <children>
+        <BorderPane prefHeight="400.0" prefWidth="600.0">
+            <right>
+                <VBox prefHeight="370.0" prefWidth="161.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label layoutX="10.0" layoutY="10.0" prefHeight="29.0" prefWidth="84.0" text="שם משתמש:  " />
+                        <Label layoutX="10.0" layoutY="10.0" prefHeight="46.0" prefWidth="56.0" text="סיסמא:  " />
+                        <Label layoutX="10.0" layoutY="10.0" prefHeight="38.0" prefWidth="56.0" text="שם מלא:  " />
+                        <Label layoutX="10.0" layoutY="116.0" prefHeight="39.0" prefWidth="75.0" text="תאריך לידה:  " />
+                        <Label layoutX="10.0" layoutY="169.0" prefHeight="40.0" prefWidth="82.0" text="כתובת מגורים:  " />
+                        <Label layoutX="10.0" layoutY="222.0" prefHeight="41.0" prefWidth="75.0" text="כתובת דוא&quot;ל:  " />
+                    </children>
+                </VBox>
+            </right>
+            <center>
+                <VBox prefHeight="239.0" prefWidth="203.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <TextField prefHeight="28.0" prefWidth="179.0" fx:id="firstText" />
+                        <Separator prefHeight="13.0" prefWidth="179.0" />
+                        <PasswordField prefHeight="27.0" prefWidth="179.0" />
+                        <Separator layoutX="10.0" layoutY="38.0" prefHeight="13.0" prefWidth="179.0" />
+                        <TextField layoutX="10.0" layoutY="10.0" prefHeight="28.0" prefWidth="179.0" />
+                        <Separator layoutX="10.0" layoutY="78.0" prefHeight="13.0" prefWidth="179.0" />
+                        <DatePicker />
+                        <Separator layoutX="10.0" layoutY="119.0" prefHeight="13.0" prefWidth="179.0" />
+                        <TextField layoutX="10.0" layoutY="91.0" prefHeight="28.0" prefWidth="179.0" />
+                        <Separator layoutX="10.0" layoutY="157.0" prefHeight="13.0" prefWidth="179.0" />
+                        <TextField layoutX="10.0" layoutY="170.0" prefHeight="28.0" prefWidth="179.0" />
+                        <Separator layoutX="10.0" layoutY="198.0" prefHeight="13.0" prefWidth="179.0" />
+                        <CheckBox mnemonicParsing="false" text="הנני מאשר את תנאי השימוש באתר" />
+                    </children>
+                </VBox>
+            </center>
+            <top>
+                <Pane prefHeight="42.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label alignment="CENTER_RIGHT" prefHeight="36.0" prefWidth="594.0" text="יצירת משתמש">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                    </children></Pane>
+            </top>
+            <left>
+                <Pane prefHeight="370.0" prefWidth="236.0" BorderPane.alignment="CENTER" />
+            </left>
+            <bottom>
+                <BorderPane prefHeight="84.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                    <left>
+                        <Pane prefHeight="38.0" prefWidth="125.0" BorderPane.alignment="CENTER" />
+                    </left>
+                    <center>
+                        <Pane prefHeight="38.0" prefWidth="184.0" BorderPane.alignment="CENTER" />
+                    </center>
+                    <right>
+                        <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                    </right>
+                    <bottom>
+                        <Pane prefHeight="62.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+                    </bottom>
+                    <top>
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="77.0" text="שלח טופס" BorderPane.alignment="CENTER"
+                        onMouseClicked="#testit"/>
+                    </top>
+                </BorderPane>
+            </bottom>
+        </BorderPane>
+    </children>
+</AnchorPane>
+
