@@ -11,6 +11,11 @@ public class MainViewController {
     @FXML
     public BorderPane lyt_mainPane;
 
+    /**
+     * Functions that presents the correct form on the primary stage by clicking the mouse.
+     * @param mouseEvent
+     * @throws IOException
+     */
 
     public void setCreate(MouseEvent mouseEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
