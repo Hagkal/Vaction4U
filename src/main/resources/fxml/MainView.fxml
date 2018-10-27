@@ -51,7 +51,7 @@
                             <Separator layoutX="10.0" layoutY="78.0" prefHeight="20.0" prefWidth="106.0" />
                             <Button layoutX="10.0" layoutY="96.0" mnemonicParsing="false" text="מחיקת משתמש" onMouseClicked="#setDelete"/>
                             <Separator layoutX="10.0" layoutY="127.0" prefHeight="20.0" prefWidth="106.0" />
-                            <Button layoutX="10.0" layoutY="147.0" mnemonicParsing="false" text="יציאה" onMouseClicked="#setCreate"/>
+                            <Button layoutX="10.0" layoutY="147.0" mnemonicParsing="false" text="יציאה" fx:id="btn_exit" onMouseClicked="#setExit"/>
                         </children>
                     </VBox>
                 </center>
