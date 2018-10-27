@@ -14,6 +14,21 @@ public class MainViewController {
 
     public void setCreate(MouseEvent mouseEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        lyt_mainPane.setCenter(loader.load(getClass().getResourceAsStream("/fxml/test.fxml")));
+        lyt_mainPane.setCenter(loader.load(getClass().getResourceAsStream("/fxml/createXML.fxml")));
+    }
+
+    public void setRead(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        lyt_mainPane.setCenter(loader.load(getClass().getResourceAsStream("/fxml/readXML.fxml")));
+    }
+
+    public void setUpdate(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        lyt_mainPane.setCenter(loader.load(getClass().getResourceAsStream("/fxml/updateXML.fxml")));
+    }
+
+    public void setDelete(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        lyt_mainPane.setCenter(loader.load(getClass().getResourceAsStream("/fxml/deleteXML.fxml")));
     }
 }

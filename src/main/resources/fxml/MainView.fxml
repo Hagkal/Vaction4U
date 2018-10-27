@@ -45,13 +45,13 @@
                         <children>
                             <Button mnemonicParsing="false" text="רישום משתמש" onMouseClicked="#setCreate"/>
                             <Separator prefHeight="19.0" prefWidth="181.0" />
-                            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="חיפוש משתמש" />
+                            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="חיפוש משתמש" onMouseClicked="#setRead" />
                             <Separator layoutX="10.0" layoutY="35.0" prefHeight="23.0" prefWidth="106.0" />
-                            <Button layoutX="10.0" layoutY="53.0" mnemonicParsing="false" text="עדכון משתמש" />
+                            <Button layoutX="10.0" layoutY="53.0" mnemonicParsing="false" text="עדכון משתמש" onMouseClicked="#setUpdate" />
                             <Separator layoutX="10.0" layoutY="78.0" prefHeight="20.0" prefWidth="106.0" />
-                            <Button layoutX="10.0" layoutY="96.0" mnemonicParsing="false" text="מחיקת משתמש" />
+                            <Button layoutX="10.0" layoutY="96.0" mnemonicParsing="false" text="מחיקת משתמש" onMouseClicked="#setDelete"/>
                             <Separator layoutX="10.0" layoutY="127.0" prefHeight="20.0" prefWidth="106.0" />
-                            <Button layoutX="10.0" layoutY="147.0" mnemonicParsing="false" text="יציאה" />
+                            <Button layoutX="10.0" layoutY="147.0" mnemonicParsing="false" text="יציאה" onMouseClicked="#setCreate"/>
                         </children>
                     </VBox>
                 </center>
