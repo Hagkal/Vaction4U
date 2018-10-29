@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 public class MainView {
 
+    public TextField tf_usernameread_update;
     private MainController m_controller;
     @FXML
     public BorderPane lyt_mainPane;
@@ -257,20 +258,30 @@ public class MainView {
     }
 
     public void read_response (ArrayList<String> response){
-        popInfo(response);
+        if (response != null)
+            popInfo(response);
+        else
+            popProblem("Username does not exist!");
     }
 
     public void delete_response (String response){
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("DELETE USER");
-        alert.setContentText(response);
-        alert.showAndWait();
+        if (response.equals("Delete success"))
+            popInfo(response);
+        else
+            popProblem(response);
+    }
+
+    public void update_response(String response){
+        if (response.equals("Update success"))
+            popInfo(response);
+        else
+            popProblem(response);
     }
 
     /**
      * this method checks if a user age is above 18
-     * @param age
-     * @return
+     * @param age - datepicker object
+     * @return true if date is larger then 18, false otherwise
      */
     private boolean isBiggerThen18 (DatePicker age) {
         LocalDate Date = age.getValue();
@@ -319,5 +330,14 @@ public class MainView {
         Alert prob = new Alert(Alert.AlertType.INFORMATION);
         prob.setContentText(data);
         prob.showAndWait();
+    }
+
+    public void send_read_update(MouseEvent mouseEvent) {
+        String s = tf_usernameread_update.getText();
+        if (s.length() == 0){
+            popProblem("Please insert a valid Username");
+        }
+        else
+            m_controller.read_user(s);
     }
 }

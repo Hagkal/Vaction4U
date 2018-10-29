@@ -171,11 +171,11 @@ public class Model {
      */
     public void delete_user(String toDelete){
         if (!user_exist(toDelete)){
-            c.delete_response("User does not exist");
+            c.delete_response("Username: " + toDelete + "\ndoes not exist");
             return;
         }
 
-        String sql = "DELETE FROM Users WHERE id = ?";
+        String sql = "DELETE FROM Users WHERE UserName = ?";
 
         try (Connection conn = this.make_connection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -192,4 +192,9 @@ public class Model {
         }
     }
 
+
+
+    public void update_read(String user_check) {
+
+    }
 }

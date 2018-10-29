@@ -42,6 +42,10 @@ public class MainController {
         v.update_response(response);
     }
 
+    public void update_read (String user_check){
+        m.update_read(user_check);
+    }
+
     public void read_user(String toRead){
         m.read_user(toRead);
     }

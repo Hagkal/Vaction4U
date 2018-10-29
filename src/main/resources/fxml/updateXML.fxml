@@ -26,12 +26,12 @@
             <right>
                 <VBox prefHeight="332.0" prefWidth="160.0" BorderPane.alignment="CENTER">
                     <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="132.0" text="שם משתמש:">
+                        <Label  alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="132.0" text="שם משתמש:">
                             <font>
                                 <Font size="17.0" />
                             </font></Label>
-                        <TextField />
-                        <Button onMouseClicked="#send_read" mnemonicParsing="false" prefHeight="32.0" prefWidth="49.0" text="חפש" />
+                        <TextField fx:id="tf_usernameread_update" />
+                        <Button onMouseClicked="#send_read_update" mnemonicParsing="false" prefHeight="32.0" prefWidth="49.0" text="חפש" />
                   <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="151.0" text="אנא הזן שם משתמש" textFill="RED" visible="false" />
                     </children></VBox>
             </right>
