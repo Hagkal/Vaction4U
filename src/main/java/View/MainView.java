@@ -2,11 +2,7 @@ package View;
 import Controller.MainController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -59,6 +55,8 @@ public class MainView {
     public void setRead(MouseEvent mouseEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         lyt_mainPane.setCenter(loader.load(getClass().getResourceAsStream("/fxml/readXML.fxml")));
+        MainView v = loader.getController();
+        v.set_controller(m_controller);
     }
 
     public void setUpdate(MouseEvent mouseEvent) throws IOException {
@@ -168,19 +166,52 @@ public class MainView {
     }
 
     public void create_response (String response){
-
+        if (response.equals("Created :)"))
+            popInfo(response);
+        else
+            popProblem(response);
     }
     public void read_response (ArrayList<String> response){
-
+        popInfo(response);
     }
+
+
     public void update_response (String response){
 
     }
+
+
     public void delete_response (String response){
 
     }
 
     public void set_controller(MainController c) {
         this.m_controller = c;
+    }
+
+    private void popProblem(String description) {
+        Alert prob = new Alert(Alert.AlertType.ERROR);
+
+        prob.setContentText(description);
+        prob.showAndWait();
+    }
+
+    private void popInfo(ArrayList<String> data) {
+        Alert prob = new Alert(Alert.AlertType.INFORMATION);
+
+        String s = "Username: " + data.get(0) + "\n" +
+                "Password: " + data.get(1) + "\n" +
+                "Birthday: " + data.get(2) + "\n" +
+                "First Name: " + data.get(3) + "\n" +
+                "Last Name: " + data.get(4) + "\n" +
+                "Hometown: " + data.get(5) + "\n";
+        prob.setContentText(s);
+        prob.showAndWait();
+    }
+
+    private void popInfo(String data){
+        Alert prob = new Alert(Alert.AlertType.INFORMATION);
+        prob.setContentText(data);
+        prob.showAndWait();
     }
 }
