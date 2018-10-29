@@ -40,8 +40,14 @@ public class Model {
      * @return - true if exist, false otherwise
      */
     private boolean user_exist(String userName){
-        read_user(userName);
-        try{
+        String sql = "SELECT * FROM Users WHERE UserName = ?";
+
+        try (Connection conn = this.make_connection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)){
+
+            pstmt.setString(1, userName);
+            m_results = pstmt.executeQuery();
+
             if (!m_results.next()){
                 return false;
             }
@@ -59,7 +65,7 @@ public class Model {
     public void create_user(ArrayList<String> attributes){
 
         if (user_exist(attributes.get(0))){
-            c.create_response("Username: " + attributes.get(0) + "already exist!");
+            c.create_response("Username: " + attributes.get(0) + "\nalready exist!");
             return;
         }
 
