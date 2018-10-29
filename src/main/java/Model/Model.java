@@ -1,31 +1,21 @@
 package Model;
 
+import Controller.MainController;
+
 import java.sql.*;
 import java.util.ArrayList;
 
 public class Model {
     //Const
-    private final String DB_URL = "jdbc:sqlite:/DB/DataBase.db";
-    public enum tables {Users}
+    private final String DB_URL = "jdbc:sqlite:src/main/resources/DB/DataBase.db";
 
     // helpful attributes
-    private String m_create_status;
-    private String m_update_status;
-    private String m_delete_status;
-    private ResultSet m_results = null;
+    private MainController c;
+    private ResultSet m_results;
 
-    // getters
-    public String get_create_status(){
-        return m_create_status;
-    }
-    public String get_update_status() {
-        return m_update_status;
-    }
-    public String get_delete_status() {
-        return m_delete_status;
-    }
-    public ResultSet get_results() {
-        return m_results;
+    // setters
+    public void set_controller(MainController c){
+        this.c = c;
     }
 
 
@@ -57,7 +47,6 @@ public class Model {
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
-            return false;
         }
 
         return true;
@@ -68,8 +57,11 @@ public class Model {
      * @param attributes - list of needed attributed by a specific order!
      */
     public void create_user(ArrayList<String> attributes){
-        if (attributes.size() != 6)
+
+        if (user_exist(attributes.get(0))){
+            c.create_response("Username: " + attributes.get(0) + "already exist!");
             return;
+        }
 
         String sql = "INSERT INTO Users (UserName,Password,Birthday,FirstName,LastName,Hometown)"
                 + " VALUES(?,?,?,?,?,?)";
@@ -84,10 +76,10 @@ public class Model {
             pstmt.setString(6, attributes.get(5)); // hometown
 
             pstmt.executeUpdate();
-            m_create_status = "Created";
+            c.create_response("Created :)");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-            m_create_status = "Failed!";
+            c.create_response("Failed :/");
         }
     }
 
@@ -103,10 +95,19 @@ public class Model {
 
             pstmt.setString(1, userName);
             m_results = pstmt.executeQuery();
+            ArrayList<String> toReturn = new ArrayList<>();
 
+            toReturn.add(m_results.getString(1));
+            toReturn.add(m_results.getString(2));
+            toReturn.add(m_results.getString(3));
+            toReturn.add(m_results.getString(4));
+            toReturn.add(m_results.getString(5));
+            toReturn.add(m_results.getString(6));
+
+            c.read_response(toReturn);
         }catch (SQLException e){
             System.out.println(e.getMessage());
-            m_results = null;
+            c.read_response(null);
         }
     }
 
@@ -118,12 +119,12 @@ public class Model {
     public void update_user(String toChange, ArrayList<String> newatt){
         // checking if the new username already exist
         if (!user_exist(toChange)){
-            m_update_status = "User: " + toChange +" does not exist!";
+            c.update_response("User: " + toChange +" does not exist!");
             return;
         }
         else{
             if (user_exist(newatt.get(0))){
-                m_update_status = "Username: " + newatt.get(0) + " already exist.";
+                c.create_response("Username: " + newatt.get(0) + " already exist.");
                 return;
             }
         }
@@ -151,10 +152,10 @@ public class Model {
 
             // update
             pstmt.executeUpdate();
-            m_update_status = "Update success";
+            c.update_response("Update success");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-            m_update_status = "Error: Could not update!";
+            c.update_response("Update failed");
         }
     }
 
@@ -163,6 +164,11 @@ public class Model {
      * @param toDelete - username to delete
      */
     public void delete_user(String toDelete){
+        if (!user_exist(toDelete)){
+            c.delete_response("User does not exist");
+            return;
+        }
+
         String sql = "DELETE FROM Users WHERE id = ?";
 
         try (Connection conn = this.make_connection();
@@ -173,9 +179,10 @@ public class Model {
 
             // execute the delete statement
             pstmt.executeUpdate();
-            m_delete_status = "Delete success";
+            c.delete_response("Delete success");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+            c.delete_response("Delete failed");
         }
     }
 

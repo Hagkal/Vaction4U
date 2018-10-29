@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0"
             xmlns="http://javafx.com/javafx/8.0.172" xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Controllers.MainViewController">
+            fx:controller="View.MainView">
 <children>
     <BorderPane fx:id="lyt_mainPane" prefHeight="400.0" prefWidth="600.0">
         <top>

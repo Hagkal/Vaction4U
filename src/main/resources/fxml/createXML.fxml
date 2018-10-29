@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CreateController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MainView">
 
     <children>
         <BorderPane prefHeight="400.0" prefWidth="600.0">
@@ -21,27 +21,27 @@
                     <children>
                         <Label layoutX="10.0" layoutY="10.0" prefHeight="29.0" prefWidth="84.0" text="שם משתמש:  " />
                         <Label layoutX="10.0" layoutY="10.0" prefHeight="46.0" prefWidth="56.0" text="סיסמא:  " />
-                        <Label layoutX="10.0" layoutY="10.0" prefHeight="38.0" prefWidth="56.0" text="שם מלא:  " />
                         <Label layoutX="10.0" layoutY="116.0" prefHeight="39.0" prefWidth="75.0" text="תאריך לידה:  " />
-                        <Label layoutX="10.0" layoutY="169.0" prefHeight="40.0" prefWidth="82.0" text="כתובת מגורים:  " />
-                        <Label layoutX="10.0" layoutY="222.0" prefHeight="41.0" prefWidth="75.0" text="כתובת דוא&quot;ל:  " />
+                        <Label layoutX="10.0" layoutY="10.0" prefHeight="38.0" prefWidth="56.0" text="שם פרטי:  " />
+                        <Label layoutX="10.0" layoutY="169.0" prefHeight="40.0" prefWidth="82.0" text="שם משפחה:  " />
+                        <Label layoutX="10.0" layoutY="222.0" prefHeight="41.0" prefWidth="75.0" text="עיר מגורים:  " />
                     </children>
                 </VBox>
             </right>
             <center>
                 <VBox prefHeight="239.0" prefWidth="203.0" BorderPane.alignment="CENTER">
                     <children>
-                        <TextField fx:id="firstText" prefHeight="28.0" prefWidth="179.0" />
+                        <TextField fx:id="tf_username" prefHeight="28.0" prefWidth="179.0" />
                         <Separator prefHeight="13.0" prefWidth="179.0" />
-                        <PasswordField prefHeight="27.0" prefWidth="179.0" />
+                        <PasswordField fx:id="pf_password" prefHeight="27.0" prefWidth="179.0" />
                         <Separator layoutX="10.0" layoutY="38.0" prefHeight="13.0" prefWidth="179.0" />
-                        <TextField layoutX="10.0" layoutY="10.0" prefHeight="28.0" prefWidth="179.0" />
+                        <DatePicker fx:id="dp_date" prefHeight="25.0" prefWidth="203.0" />
                         <Separator layoutX="10.0" layoutY="78.0" prefHeight="13.0" prefWidth="179.0" />
-                        <DatePicker fx:id="date" />
+                        <TextField fx:id="tf_firstname" layoutX="10.0" layoutY="10.0" prefHeight="28.0" prefWidth="179.0" />
                         <Separator layoutX="10.0" layoutY="119.0" prefHeight="13.0" prefWidth="179.0" />
-                        <TextField layoutX="10.0" layoutY="91.0" prefHeight="28.0" prefWidth="179.0" />
+                        <TextField fx:id="tf_lastname" layoutX="10.0" layoutY="91.0" prefHeight="28.0" prefWidth="179.0" />
                         <Separator layoutX="10.0" layoutY="157.0" prefHeight="13.0" prefWidth="179.0" />
-                        <TextField layoutX="10.0" layoutY="170.0" prefHeight="28.0" prefWidth="179.0" />
+                        <TextField fx:id="tf_hometown" layoutX="10.0" layoutY="170.0" prefHeight="28.0" prefWidth="179.0" />
                     </children>
                 </VBox>
             </center>
@@ -56,7 +56,15 @@
                     </children></Pane>
             </top>
             <left>
-                <Pane prefHeight="370.0" prefWidth="236.0" BorderPane.alignment="CENTER" />
+                <Pane prefHeight="370.0" prefWidth="236.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="lbl_usernameerr" layoutX="120.0" layoutY="5.0" prefHeight="17.0" prefWidth="112.0" text="אנא הזן שם משתמש" textFill="RED" visible="false" />
+                  <Label fx:id="lbl_passworderr" layoutX="53.0" layoutY="45.0" prefHeight="17.0" prefWidth="179.0" text="יש להזין סיסמא בת 8 תווים לפחות" textFill="RED" visible="false" />
+                  <Label fx:id="lbl_dateerr" layoutX="56.0" layoutY="87.0" prefHeight="17.0" prefWidth="176.0" text="שימוש במערכת מעל גיל 18 בלבד!" textFill="RED" visible="false" />
+                  <Label fx:id="lbl_firstnameerr" layoutX="134.0" layoutY="126.0" prefHeight="17.0" prefWidth="98.0" text="אנא הזן שם פרטי" textFill="RED" visible="false" />
+                  <Label fx:id="lbl_lastnameerr" layoutX="120.0" layoutY="164.0" prefHeight="17.0" prefWidth="112.0" text="אנא הזן שם משפחה" textFill="RED" visible="false" />
+                  <Label fx:id="lbl_hometownerr" layoutX="129.0" layoutY="206.0" prefHeight="17.0" prefWidth="101.0" text="אנא הזן עיר מגורים" textFill="RED" visible="false" />
+               </children></Pane>
             </left>
             <bottom>
                 <BorderPane prefHeight="117.0" prefWidth="600.0" BorderPane.alignment="CENTER">
@@ -73,7 +81,7 @@
                         <Pane prefHeight="62.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
                     </bottom>
                     <top>
-                        <Button mnemonicParsing="false" onMouseClicked="#testit" prefHeight="25.0" prefWidth="77.0" text="שלח טופס" fx:id="btn_send" BorderPane.alignment="CENTER" />
+                        <Button fx:id="btn_send" mnemonicParsing="false" onMouseClicked="#send_create" prefHeight="25.0" prefWidth="77.0" text="שלח טופס" BorderPane.alignment="CENTER" />
                     </top>
                 </BorderPane>
             </bottom>
