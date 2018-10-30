@@ -1,5 +1,6 @@
 package View;
 import Controller.MainController;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
@@ -13,6 +14,8 @@ import java.util.ArrayList;
 public class MainView {
 
     public TextField tf_usernameread_update;
+    public Button btn_cancel_update;
+    public Button btn_update_search;
     private MainController m_controller;
     @FXML
     public BorderPane lyt_mainPane;
@@ -45,7 +48,7 @@ public class MainView {
     public DatePicker dp_dateUpdate;
     public TextField tf_lastnameUpdate;
     public TextField tf_hometownUpdate;
-    public TextField tf_passwordUpdate;
+    public PasswordField pf_passwordUpdate;
     public Button btn_sendUpdate = new Button();
 
     //update error label
@@ -57,11 +60,6 @@ public class MainView {
     public Label lbl_dateUpdateErr;
 
 
-    /**
-     * Functions that presents the correct form on the primary stage by clicking the mouse.
-     * @param mouseEvent
-     * @throws IOException
-     */
 
     public void setCreate(MouseEvent mouseEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
@@ -83,6 +81,7 @@ public class MainView {
         lyt_mainPane.setCenter(loader.load(getClass().getResourceAsStream("/fxml/updateXML.fxml")));
         MainView m = loader.getController();
         m.set_controller(m_controller);
+        m_controller.set_plasterAhosharmuta(m);
     }
 
     public void setDelete(MouseEvent mouseEvent) throws IOException {
@@ -180,11 +179,10 @@ public class MainView {
         boolean allChecked = true;
         //temp string fields to get the text from the text field, will be checked before inserting to array list
         String username = tf_usernameread_update.getText(),
-                password = tf_passwordUpdate.getText(),
+                password = pf_passwordUpdate.getText(),
                 firstname = tf_firstnameUpdate.getText(),
                 lastname = tf_lastnameUpdate.getText(),
                 hometown = tf_hometownUpdate.getText();
-        tf_usernameUpdate.setText(username);
         //set error labels to be not visible
         lbl_userNameUpdateErr.setVisible(false);
         lbl_firstNameUpdateErr.setVisible(false);
@@ -274,8 +272,31 @@ public class MainView {
     }
 
     public void update_response(String response){
-        if (response.equals("Update success"))
+        if (response.equals("Update success")){
             popInfo(response);
+
+            btn_cancel_update.setDisable(true);
+            btn_cancel_update.setVisible(false);
+
+            btn_update_search.setDisable(false);
+            tf_usernameread_update.setDisable(false);
+
+            btn_sendUpdate.setDisable(true);
+
+            pf_passwordUpdate.setDisable(true);
+            dp_dateUpdate.setDisable(true);
+            tf_firstnameUpdate.setDisable(true);
+            tf_lastnameUpdate.setDisable(true);
+            tf_hometownUpdate.setDisable(true);
+
+            pf_passwordUpdate.clear();
+            dp_dateUpdate.getEditor().clear();
+            tf_firstnameUpdate.clear();
+            tf_lastnameUpdate.clear();
+            tf_hometownUpdate.clear();
+        }
+
+
         else
             popProblem(response);
     }
@@ -346,9 +367,43 @@ public class MainView {
     public void read_update_response (ArrayList<String> response){
         if (response != null) {
             popInfo(response);
+
+            btn_sendUpdate.setDisable(false);
+
+            btn_cancel_update.setDisable(false);
+            btn_cancel_update.setVisible(true);
+
+            btn_update_search.setDisable(true);
+            tf_usernameread_update.setDisable(true);
+
+            pf_passwordUpdate.setDisable(false);
+            dp_dateUpdate.setDisable(false);
+            tf_firstnameUpdate.setDisable(false);
+            tf_lastnameUpdate.setDisable(false);
+            tf_hometownUpdate.setDisable(false);
+
+
         }
         else
             popProblem("Username does not exist!");
+    }
+
+
+    public void update_cancel(ActionEvent actionEvent) {
+        btn_update_search.setDisable(false);
+        tf_usernameread_update.setDisable(false);
+
+        btn_cancel_update.setDisable(true);
+        btn_cancel_update.setVisible(false);
+
+        btn_sendUpdate.setDisable(true);
+
+        lbl_userNameUpdateErr.setVisible(false);
+        lbl_firstNameUpdateErr.setVisible(false);
+        lbl_lastNameUpdateErr.setVisible(false);
+        lbl_passwordUpdateErr.setVisible(false);
+        lbl_hometownUpdateErr.setVisible(false);
+        lbl_dateUpdateErr.setVisible(false);
     }
 
 

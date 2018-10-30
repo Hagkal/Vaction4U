@@ -9,6 +9,7 @@ public class MainController {
 
     private Model m;
     private MainView v;
+    private MainView plasterAhosharmuta;
 
     public void set_model(Model m){
         this.m = m;
@@ -17,6 +18,8 @@ public class MainController {
     public void set_view(MainView v){
         this.v = v;
     }
+
+    public void set_plasterAhosharmuta(MainView view){this.plasterAhosharmuta = view;}
 
     public void create_user(ArrayList<String> data){
         m.create_user(data);
@@ -39,7 +42,7 @@ public class MainController {
     }
 
     public void update_response(String response){
-        v.update_response(response);
+        plasterAhosharmuta.update_response(response);
     }
 
     public void read_user(String toRead){
@@ -55,6 +58,6 @@ public class MainController {
     }
 
     public void read_update_response(ArrayList<String> toReturn) {
-        v.read_update_response(toReturn);
+        plasterAhosharmuta.read_update_response(toReturn);
     }
 }
