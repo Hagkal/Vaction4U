@@ -282,6 +282,18 @@ public class MainView {
             tf_usernameread_update.setDisable(false);
 
             btn_sendUpdate.setDisable(true);
+
+            pf_passwordUpdate.setDisable(true);
+            dp_dateUpdate.setDisable(true);
+            tf_firstnameUpdate.setDisable(true);
+            tf_lastnameUpdate.setDisable(true);
+            tf_hometownUpdate.setDisable(true);
+
+            pf_passwordUpdate.clear();
+            dp_dateUpdate.getEditor().clear();
+            tf_firstnameUpdate.clear();
+            tf_lastnameUpdate.clear();
+            tf_hometownUpdate.clear();
         }
 
 
@@ -385,6 +397,13 @@ public class MainView {
         btn_cancel_update.setVisible(false);
 
         btn_sendUpdate.setDisable(true);
+
+        lbl_userNameUpdateErr.setVisible(false);
+        lbl_firstNameUpdateErr.setVisible(false);
+        lbl_lastNameUpdateErr.setVisible(false);
+        lbl_passwordUpdateErr.setVisible(false);
+        lbl_hometownUpdateErr.setVisible(false);
+        lbl_dateUpdateErr.setVisible(false);
     }
 
 
