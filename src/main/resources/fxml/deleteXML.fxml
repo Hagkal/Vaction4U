@@ -41,7 +41,7 @@
             <bottom>
                 <Pane prefHeight="283.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                     <children>
-                  <Label fx:id="lbl_userNameDeleteErr" layoutX="309.0" layoutY="16.0" text="אנא הזן שם משתמש!" />
+                  <Label fx:id="lbl_userNameDeleteErr" visible="false" layoutX="309.0" layoutY="16.0" text="אנא הזן שם משתמש!" />
                         <Button onMouseClicked="#send_delete" alignment="CENTER_RIGHT" layoutX="431.0" layoutY="7.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="45.0" text="מחק" textAlignment="CENTER" />
                     </children>
                 </Pane>
