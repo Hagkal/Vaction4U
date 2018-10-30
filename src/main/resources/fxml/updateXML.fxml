@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MainView">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MainView">
 
     <children>
 
@@ -48,11 +48,11 @@
                         <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                             <children>
 
-                                <Label layoutX="10.0" layoutY="10.0" prefHeight="51.0" prefWidth="45.0" text="סיסמא:  " />
-                                <Label layoutX="10.0" layoutY="10.0" prefHeight="30.0" prefWidth="69.0" text="תאריך לידה:  " />
-                                <Label layoutX="10.0" layoutY="10.0" prefHeight="50.0" prefWidth="64.0" text="שם פרטי:  " />
-                                <Label layoutX="10.0" layoutY="27.0" prefHeight="29.0" prefWidth="82.0" text="שם משפחה:  " />
-                                <Label layoutX="10.0" layoutY="44.0" prefHeight="55.0" prefWidth="75.0" text="עיר מגורים:  " />
+                                <Label layoutX="10.0" layoutY="10.0" prefHeight="22.0" prefWidth="45.0" text="סיסמא:  " />
+                                <Label layoutX="10.0" layoutY="10.0" prefHeight="62.0" prefWidth="69.0" text="תאריך לידה:  " />
+                                <Label layoutX="10.0" layoutY="10.0" prefHeight="22.0" prefWidth="64.0" text="שם פרטי:  " />
+                                <Label layoutX="10.0" layoutY="27.0" prefHeight="59.0" prefWidth="82.0" text="שם משפחה:  " />
+                                <Label layoutX="10.0" layoutY="44.0" prefHeight="25.0" prefWidth="75.0" text="עיר מגורים:  " />
                             </children></VBox>
                     </right>
                     <center>
@@ -84,12 +84,12 @@
          <left>
             <VBox prefHeight="332.0" prefWidth="201.0" BorderPane.alignment="CENTER">
                <children>
-                   <Label fx:id="lbl_userNameUpdateErr" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="120.0" layoutY="5.0" prefHeight="24.0" prefWidth="195.0" text="אנא הזן שם משתמש" textAlignment="RIGHT" textFill="RED" visible="false" />
-                   <Label fx:id="lbl_passwordUpdateErr" alignment="CENTER_RIGHT" layoutX="53.0" layoutY="45.0" prefHeight="54.0" prefWidth="199.0" text="יש להזין סיסמא בת 8 תווים לפחות" textFill="RED" visible="false" />
-                   <Label fx:id="lbl_dateUpdateErr" alignment="CENTER_RIGHT" layoutX="56.0" layoutY="87.0" prefHeight="24.0" prefWidth="199.0" text="שימוש במערכת מעל גיל 18 בלבד!" textFill="RED" visible="false" />
-                   <Label fx:id="lbl_firstNameUpdateErr" alignment="CENTER_RIGHT" layoutX="134.0" layoutY="126.0" prefHeight="55.0" prefWidth="197.0" text="אנא הזן שם פרטי" textFill="RED" visible="false" />
-                   <Label fx:id="lbl_lastNameUpdateErr" alignment="CENTER_RIGHT" layoutX="120.0" layoutY="164.0" prefHeight="28.0" prefWidth="199.0" text="אנא הזן שם משפחה" textFill="RED" visible="false" />
-                   <Label fx:id="lbl_hometownUpdateErr" alignment="CENTER_RIGHT" layoutX="129.0" layoutY="206.0" prefHeight="56.0" prefWidth="198.0" text="אנא הזן עיר מגורים" textFill="RED" visible="false" />
+                   <Label fx:id="lbl_passwordUpdateErr" alignment="CENTER_RIGHT" layoutX="53.0" layoutY="45.0" prefHeight="23.0" prefWidth="199.0" text="יש להזין סיסמא בת 8 תווים לפחות" textFill="RED" visible="false" />
+                   <Label fx:id="lbl_dateUpdateErr" alignment="CENTER_RIGHT" layoutX="56.0" layoutY="87.0" prefHeight="52.0" prefWidth="199.0" text="שימוש במערכת מעל גיל 18 בלבד!" textFill="RED" visible="false" />
+                   <Label fx:id="lbl_firstNameUpdateErr" alignment="CENTER_RIGHT" layoutX="134.0" layoutY="126.0" prefHeight="32.0" prefWidth="197.0" text="אנא הזן שם פרטי" textFill="RED" visible="false" />
+                   <Label fx:id="lbl_lastNameUpdateErr" alignment="CENTER_RIGHT" layoutX="120.0" layoutY="164.0" prefHeight="52.0" prefWidth="199.0" text="אנא הזן שם משפחה" textFill="RED" visible="false" />
+                   <Label fx:id="lbl_hometownUpdateErr" alignment="CENTER_RIGHT" layoutX="129.0" layoutY="206.0" prefHeight="36.0" prefWidth="198.0" text="אנא הזן עיר מגורים" textFill="RED" visible="false" />
+                   <Label fx:id="lbl_userNameUpdateErr" alignment="CENTER_RIGHT" layoutX="120.0" layoutY="5.0" prefHeight="26.0" prefWidth="195.0" textAlignment="RIGHT" textFill="RED" visible="false" />
                </children></VBox>
          </left>
         </BorderPane>
