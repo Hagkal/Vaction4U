@@ -192,9 +192,27 @@ public class Model {
         }
     }
 
+    public void read_update_user(String s) {
+        String sql = "SELECT * FROM Users WHERE UserName = ?";
 
+        try (Connection conn = this.make_connection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)){
 
-    public void update_read(String user_check) {
+            pstmt.setString(1, s);
+            m_results = pstmt.executeQuery();
+            ArrayList<String> toReturn = new ArrayList<>();
 
+            toReturn.add(m_results.getString(1));
+            toReturn.add(m_results.getString(2));
+            toReturn.add(m_results.getString(3));
+            toReturn.add(m_results.getString(4));
+            toReturn.add(m_results.getString(5));
+            toReturn.add(m_results.getString(6));
+
+            c.read_update_response(toReturn);
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+            c.read_update_response(null);
+        }
     }
 }
