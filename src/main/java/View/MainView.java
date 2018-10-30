@@ -40,13 +40,14 @@ public class MainView {
     //delete form label
     public Label lbl_userNameDeleteErr;
     //update form controllers
-    public TextField tf_usernameUpdate;
+    public TextField tf_usernameUpdate = new TextField();
     public TextField tf_firstnameUpdate;
     public DatePicker dp_dateUpdate;
     public TextField tf_lastnameUpdate;
     public TextField tf_hometownUpdate;
     public TextField tf_passwordUpdate;
-    public Button btn_sendUpdate;
+    public Button btn_sendUpdate = new Button();
+
     //update error label
     public Label lbl_userNameUpdateErr;
     public Label lbl_firstNameUpdateErr;
@@ -178,12 +179,12 @@ public class MainView {
         ArrayList<String> toSend = new ArrayList<String>();
         boolean allChecked = true;
         //temp string fields to get the text from the text field, will be checked before inserting to array list
-        String username = tf_usernameUpdate.getText(),
+        String username = tf_usernameread_update.getText(),
                 password = tf_passwordUpdate.getText(),
                 firstname = tf_firstnameUpdate.getText(),
                 lastname = tf_lastnameUpdate.getText(),
                 hometown = tf_hometownUpdate.getText();
-
+        tf_usernameUpdate.setText(username);
         //set error labels to be not visible
         lbl_userNameUpdateErr.setVisible(false);
         lbl_firstNameUpdateErr.setVisible(false);
@@ -287,7 +288,7 @@ public class MainView {
     private boolean isBiggerThen18 (DatePicker age) {
         LocalDate Date = age.getValue();
         LocalDate today = LocalDate.now();
-        if (Date.getYear() + 18 > today.getYear())
+        if (Date == null || Date.getYear() + 18 > today.getYear())
             return false;
         else if (Date.getYear() + 18 == today.getYear()) {
             if (Date.getMonthValue() > today.getMonthValue())
@@ -344,9 +345,7 @@ public class MainView {
 
     public void read_update_response (ArrayList<String> response){
         if (response != null) {
-            String s = response.get(0);
-            tf_usernameUpdate.setText(s);
-            btn_sendUpdate.setDisable(false);
+            popInfo(response);
         }
         else
             popProblem("Username does not exist!");
