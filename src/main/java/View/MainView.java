@@ -288,7 +288,7 @@ public class MainView {
     private boolean isBiggerThen18 (DatePicker age) {
         LocalDate Date = age.getValue();
         LocalDate today = LocalDate.now();
-        if (Date.getYear() + 18 > today.getYear())
+        if (Date == null || Date.getYear() + 18 > today.getYear())
             return false;
         else if (Date.getYear() + 18 == today.getYear()) {
             if (Date.getMonthValue() > today.getMonthValue())

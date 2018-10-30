@@ -125,7 +125,7 @@ public class Model {
     public void update_user(String toChange, ArrayList<String> newatt){
         // checking if the new username already exist
         if (!user_exist(toChange)){
-            c.update_response("User: " + toChange +" does not exist!");
+            c.update_response("User: " + toChange +"\ndoes not exist!");
             return;
         }
         /**else{
@@ -142,11 +142,11 @@ public class Model {
                 + "FirstName = ? , "
                 + "LastName = ? , "
                 + "Hometown = ? "
-                + "WHERE UserName = " + toChange;
+                + "WHERE UserName = ?";
 
         try (Connection conn = this.make_connection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
+             ) {
+            PreparedStatement pstmt = conn.prepareStatement(sql);
             // set the corresponding param
             pstmt.setString(1, newatt.get(0));
             pstmt.setString(2, newatt.get(1));
@@ -154,6 +154,7 @@ public class Model {
             pstmt.setString(4, newatt.get(3));
             pstmt.setString(5, newatt.get(4));
             pstmt.setString(6, newatt.get(5));
+            pstmt.setString(7, toChange);
 
             // update
             pstmt.executeUpdate();
