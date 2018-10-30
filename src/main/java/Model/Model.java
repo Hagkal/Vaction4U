@@ -136,7 +136,7 @@ public class Model {
         }**/
 
         String sql = "UPDATE Users "
-                + " SET UserName = ? , "
+                + "SET UserName = ? , "
                 + "Password = ? , "
                 + "Birthday = ? , "
                 + "FirstName = ? , "
