@@ -46,6 +46,7 @@ public class MainView {
     public TextField tf_lastnameUpdate;
     public TextField tf_hometownUpdate;
     public TextField tf_passwordUpdate;
+    public Button btn_sendUpdate;
     //update error label
     public Label lbl_userNameUpdateErr;
     public Label lbl_firstNameUpdateErr;
@@ -338,6 +339,18 @@ public class MainView {
             popProblem("Please insert a valid Username");
         }
         else
-            m_controller.read_user(s);
+            m_controller.read_update_user(s);
     }
+
+    public void read_update_response (ArrayList<String> response){
+        if (response != null) {
+            String s = response.get(0);
+            tf_usernameUpdate.setText(s);
+            btn_sendUpdate.setDisable(false);
+        }
+        else
+            popProblem("Username does not exist!");
+    }
+
+
 }

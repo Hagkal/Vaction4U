@@ -42,10 +42,6 @@ public class MainController {
         v.update_response(response);
     }
 
-    public void update_read (String user_check){
-        m.update_read(user_check);
-    }
-
     public void read_user(String toRead){
         m.read_user(toRead);
     }
@@ -54,4 +50,11 @@ public class MainController {
         v.read_response(response);
     }
 
+    public void read_update_user(String s) {
+        m.read_update_user(s);
+    }
+
+    public void read_update_response(ArrayList<String> toReturn) {
+        v.read_update_response(toReturn);
+    }
 }
