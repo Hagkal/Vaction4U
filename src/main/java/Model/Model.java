@@ -128,17 +128,16 @@ public class Model {
             c.update_response("User: " + toChange +" does not exist!");
             return;
         }
-        else{
+        /**else{
             if (user_exist(newatt.get(0))){
                 c.create_response("Username: " + newatt.get(0) + " already exist.");
                 return;
             }
-        }
+        }**/
 
         String sql = "UPDATE Users "
                 + " SET UserName = ? , "
                 + "Password = ? , "
-                + "FullName = ? , "
                 + "Birthday = ? , "
                 + "FirstName = ? , "
                 + "LastName = ? , "
