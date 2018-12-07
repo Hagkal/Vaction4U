@@ -8,6 +8,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.sql.Time;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -167,6 +168,8 @@ public class MainView {
         String username = tf_usernameread.getText();
         //set error labels to be not visible
         lbl_userReadNameErr.setVisible(false);
+        dp_dateUpdate.setVisible(true);
+        dp_dateUpdate.setEditable(true);
         if (username.length() == 0){
             lbl_userReadNameErr.setVisible(true);
         }
@@ -182,7 +185,9 @@ public class MainView {
                 password = pf_passwordUpdate.getText(),
                 firstname = tf_firstnameUpdate.getText(),
                 lastname = tf_lastnameUpdate.getText(),
-                hometown = tf_hometownUpdate.getText();
+                hometown = tf_hometownUpdate.getText(),
+                birthday = "";
+
         //set error labels to be not visible
         lbl_userNameUpdateErr.setVisible(false);
         lbl_firstNameUpdateErr.setVisible(false);
@@ -191,6 +196,10 @@ public class MainView {
         lbl_hometownUpdateErr.setVisible(false);
         lbl_dateUpdateErr.setVisible(false);
 
+        if (!dp_dateUpdate.getEditor().getText().isEmpty())
+            birthday = dp_dateUpdate.getEditor().getText();
+        else if (!dp_dateUpdate.getPromptText().isEmpty())
+            birthday = dp_dateUpdate.getPromptText();
 
         //username check
         if (username.length() == 0){
@@ -217,7 +226,7 @@ public class MainView {
         }
 
         //date check
-        if (!isBiggerThen18(dp_dateUpdate)){
+        if (dp_dateUpdate.getValue() != null && !isBiggerThen18(dp_dateUpdate)){
             lbl_dateUpdateErr.setVisible(true);
             allChecked = false;
         }
@@ -231,12 +240,14 @@ public class MainView {
         if (allChecked){
             toSend.add(username);
             toSend.add(password);
-            toSend.add(dp_dateUpdate.getEditor().getText());
+            toSend.add(birthday);
             toSend.add(firstname);
             toSend.add(lastname);
             toSend.add(hometown);
             m_controller.update_user(username, toSend);
         }
+        dp_dateUpdate.setPromptText("");
+        dp_dateUpdate.getEditor().setText("");
     }
 
     public void send_delete(MouseEvent mouseEvent)throws IOException{
@@ -282,18 +293,17 @@ public class MainView {
             tf_usernameread_update.setDisable(false);
 
             btn_sendUpdate.setDisable(true);
-
-            pf_passwordUpdate.setDisable(true);
-            dp_dateUpdate.setDisable(true);
-            tf_firstnameUpdate.setDisable(true);
-            tf_lastnameUpdate.setDisable(true);
+            tf_hometownUpdate.setText("");
             tf_hometownUpdate.setDisable(true);
-
-            pf_passwordUpdate.clear();
-            dp_dateUpdate.getEditor().clear();
-            tf_firstnameUpdate.clear();
-            tf_lastnameUpdate.clear();
-            tf_hometownUpdate.clear();
+            tf_lastnameUpdate.setText("");
+            tf_lastnameUpdate.setDisable(true);
+            tf_firstnameUpdate.setText("");
+            tf_firstnameUpdate.setDisable(true);
+            pf_passwordUpdate.setText("");
+            pf_passwordUpdate.setDisable(true);
+            dp_dateUpdate.getEditor().setText("");
+            dp_dateUpdate.setPromptText("");
+            dp_dateUpdate.setDisable(true);
         }
 
 
@@ -350,6 +360,7 @@ public class MainView {
     }
 
     private void popInfo(String data){
+
         Alert prob = new Alert(Alert.AlertType.INFORMATION);
         prob.setContentText(data);
         prob.showAndWait();
@@ -366,7 +377,6 @@ public class MainView {
 
     public void read_update_response (ArrayList<String> response){
         if (response != null) {
-            popInfo(response);
 
             btn_sendUpdate.setDisable(false);
 
@@ -378,9 +388,16 @@ public class MainView {
 
             pf_passwordUpdate.setDisable(false);
             dp_dateUpdate.setDisable(false);
+            dp_dateUpdate.setEditable(false);
             tf_firstnameUpdate.setDisable(false);
             tf_lastnameUpdate.setDisable(false);
             tf_hometownUpdate.setDisable(false);
+            pf_passwordUpdate.setText(response.get(1));
+            dp_dateUpdate.setPromptText(response.get(2));
+            tf_firstnameUpdate.setText(response.get(3));
+            tf_lastnameUpdate.setText(response.get(4));
+            tf_hometownUpdate.setText(response.get(5));
+
 
 
         }
@@ -404,6 +421,18 @@ public class MainView {
         lbl_passwordUpdateErr.setVisible(false);
         lbl_hometownUpdateErr.setVisible(false);
         lbl_dateUpdateErr.setVisible(false);
+
+        tf_hometownUpdate.setText("");
+        tf_hometownUpdate.setDisable(true);
+        tf_lastnameUpdate.setText("");
+        tf_lastnameUpdate.setDisable(true);
+        tf_firstnameUpdate.setText("");
+        tf_firstnameUpdate.setDisable(true);
+        pf_passwordUpdate.setText("");
+        pf_passwordUpdate.setDisable(true);
+        dp_dateUpdate.getEditor().setText("");
+        dp_dateUpdate.setPromptText("");
+        dp_dateUpdate.setDisable(true);
     }
 
 

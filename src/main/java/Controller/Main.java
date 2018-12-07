@@ -19,7 +19,7 @@ public class Main extends Application {
         String fxmlFile = "/fxml/MainView.fxml";
         Parent root = loader.load(getClass().getResourceAsStream(fxmlFile));
 
-        // seeting up
+        // setting up
         Model m = new Model();
         MainController c = new MainController();
         MainView v = loader.getController();
