@@ -21,20 +21,7 @@ public class MainView {
     @FXML
     public BorderPane lyt_mainPane;
     public Button btn_exit;
-    //create form controls
-    public TextField tf_username;
-    public TextField tf_firstname;
-    public DatePicker dp_date;
-    public TextField tf_lastname;
-    public TextField tf_hometown;
-    public PasswordField pf_password;
-    //create error labels
-    public Label lbl_usernameerr;
-    public Label lbl_firstnameerr;
-    public Label lbl_lastnameerr;
-    public Label lbl_passworderr;
-    public Label lbl_hometownerr;
-    public Label lbl_dateerr;
+
     //read form control
     public TextField tf_usernameread;
     //read error label
@@ -61,13 +48,6 @@ public class MainView {
     public Label lbl_dateUpdateErr;
 
 
-
-    public void setCreate(MouseEvent mouseEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        lyt_mainPane.setCenter(loader.load(getClass().getResourceAsStream("/fxml/createXML.fxml")));
-        MainView m = loader.getController();
-        m.set_controller(m_controller);
-    }
 
     public void setRead(MouseEvent mouseEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
@@ -97,79 +77,10 @@ public class MainView {
         stage.close();
     }
 
-    public void send_create(MouseEvent mouseEvent)throws IOException{
-        ArrayList<String> toSend = new ArrayList<String>();
-        boolean allChecked = true;
-        //temp string fields to get the text from the text field, will be checked before inserting to array list
-        String username = tf_username.getText(),
-                password = pf_password.getText(),
-                firstname = tf_firstname.getText(),
-                lastname = tf_lastname.getText(),
-                hometown = tf_hometown.getText();
-
-        //set error labels to be not visible
-        lbl_usernameerr.setVisible(false);
-        lbl_firstnameerr.setVisible(false);
-        lbl_lastnameerr.setVisible(false);
-        lbl_passworderr.setVisible(false);
-        lbl_hometownerr.setVisible(false);
-        lbl_dateerr.setVisible(false);
-
-
-        //username check
-        if (username.length() == 0){
-            lbl_usernameerr.setVisible(true);
-            allChecked = false;
-        }
-
-        //password check
-        if (password.length() < 8){
-            lbl_passworderr.setVisible(true);
-            allChecked = false;
-        }
-
-        //first name check
-        if (firstname.length() < 2){
-            lbl_firstnameerr.setVisible(true);
-            allChecked = false;
-        }
-
-        //last name check
-        if (lastname.length() < 2){
-            lbl_lastnameerr.setVisible(true);
-            allChecked = false;
-        }
-
-        //date check
-        if (!isBiggerThen18(dp_date)){
-            lbl_dateerr.setVisible(true);
-            allChecked = false;
-        }
-
-        //hometown check
-        if (hometown.length() < 2){
-            lbl_hometownerr.setVisible(true);
-            allChecked = false;
-        }
-
-        if (allChecked){
-            toSend.add(username);
-            toSend.add(password);
-            toSend.add(dp_date.getEditor().getText());
-            toSend.add(firstname);
-            toSend.add(lastname);
-            toSend.add(hometown);
-            m_controller.create_user(toSend);
-        }
-
-    }
-
     public void send_read (MouseEvent mouseEvent) throws IOException{
         String username = tf_usernameread.getText();
         //set error labels to be not visible
         lbl_userReadNameErr.setVisible(false);
-        dp_dateUpdate.setVisible(true);
-        dp_dateUpdate.setEditable(true);
         if (username.length() == 0){
             lbl_userReadNameErr.setVisible(true);
         }

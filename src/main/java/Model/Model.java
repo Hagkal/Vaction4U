@@ -1,5 +1,6 @@
 package Model;
 
+import Controller.LoginController;
 import Controller.MainController;
 
 import java.sql.*;
@@ -11,6 +12,7 @@ public class Model {
 
     // helpful attributes
     private MainController c;
+    private LoginController lc;
     private ResultSet m_results;
 
     // setters

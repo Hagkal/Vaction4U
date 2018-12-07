@@ -42,8 +42,6 @@
                 <center>
                     <VBox prefHeight="335.0" prefWidth="139.0" BorderPane.alignment="CENTER">
                         <children>
-                            <Button mnemonicParsing="false" onMouseClicked="#setCreate" text="רישום משתמש" />
-                            <Separator prefHeight="19.0" prefWidth="181.0" />
                             <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#setRead" text="חיפוש משתמש" />
                             <Separator layoutX="10.0" layoutY="35.0" prefHeight="23.0" prefWidth="106.0" />
                             <Button layoutX="10.0" layoutY="53.0" mnemonicParsing="false" onMouseClicked="#setUpdate" text="עדכון משתמש" />
